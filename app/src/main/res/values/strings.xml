@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="type_c">C°</string>
+    <string name="type_f">F°</string>
+    <string name="save_settings">Settings saved with success</string>
+    <string name="settings">Settings</string>
+
+    <string name="wind_speed">wind %.2f m/s</string>
+    <string name="clouds_percent">clouds %d%%</string>
+    <string name="pressure_hpa">%d hpa</string>
+</resources>
