@@ -24,11 +24,12 @@ platform :android do
     )
 
     firebase_app_distribution(
-      app: "1:987881284059:android:466ceb4440305304e0c7fe",
+      app_id: options[:app_id], 
       apk_path: "./app/build/outputs/apk/release/app-release-unsigned.apk",
       testers: "petrusclavio@gmail.com, pccs@cesar.school",
       release_notes: "Lots of amazing new features to test out!",
       firebase_cli_path: "/usr/local/bin/firebase"
+      firebase_token: options[:firebase_token]
     )
 
    end
