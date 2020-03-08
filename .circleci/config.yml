@@ -13,6 +13,8 @@ jobs:
       #      - run:
       #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
       #         command: sudo chmod +x ./gradlew
+      - restore_cache:
+          key: gems-{{ checksum "Gemfile.lock" }}
       - run:
           name: Accept licenses
           command: yes | sdkmanager --licenses || true
