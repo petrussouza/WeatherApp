@@ -18,7 +18,7 @@ default_platform(:android)
 platform :android do
 
   desc "My awesome app"
-  lane :distribute do
+  lane :distribute do |options|
     gradle(
       tasks: ["assemble"]
     )
