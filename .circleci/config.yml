@@ -21,7 +21,12 @@ jobs:
 
       - run:
           name: Download Ruby Dependencies
-          command: bundle check || bundle install --path vendor/bundle
+          command: |
+                  echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+                  source $BASH_ENV
+                  gem install bundler
+                  bundler -v
+                  bundle check || bundle install --path vendor/bundle
           
       - run:
           name: Download Dependencies
