@@ -29,7 +29,7 @@ platform :android do
       testers: "petrusclavio@gmail.com, pccs@cesar.school",
       release_notes: "Lots of amazing new features to test out!",
       firebase_cli_path: "/usr/local/bin/firebase",
-      firebase_token: "#{options[:firebase_token]}"
+      firebase_cli_token: "#{options[:firebase_token]}"
     )
 
    end
