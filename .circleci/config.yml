@@ -9,15 +9,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
-      - run: bundle check || bundle install --path vendor/bundle
-      - save_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      #      - run:
+      #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+      #         command: sudo chmod +x ./gradlew
       - run:
           name: Accept licenses
           command: yes | sdkmanager --licenses || true
+
+      - run:
+          name: Download Ruby Dependencies
+          command: bundle check || bundle install --path vendor/bundle
+          
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
