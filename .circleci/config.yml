@@ -27,7 +27,10 @@ jobs:
                   gem install bundler
                   bundler -v
                   bundle check || bundle install --path vendor/bundle
-          
+      - run:  
+          name: "Install Firebase CLI"
+          command: |
+                  curl -sL firebase.tools | bash  
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
