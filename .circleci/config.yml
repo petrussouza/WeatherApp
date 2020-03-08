@@ -32,6 +32,10 @@ jobs:
           command: |
                   curl -sL firebase.tools | bash  
       - run:
+          name: "Deploy alpha build to Firebase"
+          command: |
+                   bundle exec fastlane stage flavor:alpha branch:${CIRCLE_BRANCH} app_id:$FIREBASE_APP_ID firebase_token:$FIREBASE_APP_TOKEN
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - run:
